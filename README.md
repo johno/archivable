@@ -1,6 +1,8 @@
 # Archivable
 
-TODO: Write a gem description
+_Currently under development._
+
+Archive your Rails models rather than delete them.
 
 ## Installation
 
