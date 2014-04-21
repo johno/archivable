@@ -27,8 +27,8 @@ describe Archivable::Controller do
     context 'when unsuccessfully archived' do
 
       it 'should render the :show action' do
-        Fake.any_instance.stub({save: false})
-        subject.should_receive(:render).with(:show, { alert: "Fake wasn't archived successfully." })
+        Fake.any_instance.stub({ save: false })
+        subject.should_receive(:render).with(:show, { alert: "Fake was not archived successfully." })
         subject.archive
       end
     end
