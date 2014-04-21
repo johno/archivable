@@ -10,10 +10,12 @@ module Archivable
       archivable_model = set_model_instance_variable
       archivable_model.toggle(:archived)
 
-      if archivable_model.save
-        render :show, notice: get_archivable_flash(archivable_model, success: true)
-      else
-        render :show, alert: get_archivable_flash(archivable_model, success: false)
+      respond_to do |format|
+        if archivable_model.save
+          format.html { render :show, notice: get_archivable_flash(archivable_model, success: true) }
+        else
+          format.html { render :show, alert: get_archivable_flash(archivable_model, success: false) }
+        end
       end
     end
 
