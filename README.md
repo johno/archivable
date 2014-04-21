@@ -1,5 +1,7 @@
 # Archivable
 
+[![Build Status](https://travis-ci.org/johnotander/archivable.svg?branch=master)](https://travis-ci.org/johnotander/archivable)
+
 _Currently under development._
 
 Archive your Rails models rather than delete them.
