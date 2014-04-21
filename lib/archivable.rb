@@ -1,5 +1,7 @@
-require "archivable/version"
+require 'archivable/version'
+
+require 'archivable/model'
+require 'archivable/controller'
 
 module Archivable
-  # Your code goes here...
 end

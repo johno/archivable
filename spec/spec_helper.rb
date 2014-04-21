@@ -4,8 +4,14 @@ require 'rspec'
 
 require 'archivable'
 
-I18n.enforce_available_locales = false
-
 RSpec.configure do |config|
   config.color_enabled = true
+end
+
+class FakeModel
+  attr_accessor :archived
+end
+
+class FakesController
+  include Archivable::Controller
 end
