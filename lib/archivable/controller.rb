@@ -7,13 +7,13 @@ module Archivable
     extend ActiveSupport::Concern
 
     def archive
-      set_model_instance_variable
-      get_model_instance_variable.toggle(:archived)
+      archivable_model = set_model_instance_variable
+      archivable_model.toggle(:archived)
 
-      if get_model_instance_variable.save
-        render :show, notice: get_archivable_flash(get_model_instance_variable, success: true)
+      if archivable_model.save
+        render :show, notice: get_archivable_flash(archivable_model, success: true)
       else
-        render :show, alert: get_archivable_flash(get_model_instance_variable, success: false)
+        render :show, alert: get_archivable_flash(archivable_model, success: false)
       end
     end
 
