@@ -6,10 +6,10 @@ require 'archivable/version'
 Gem::Specification.new do |spec|
   spec.name          = "archivable"
   spec.version       = Archivable::VERSION
-  spec.authors       = ["TODO: Write your name"]
+  spec.authors       = ["John Otander"]
   spec.email         = ["johnotander@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{Archive your Rails models rather than delete them.}
+  spec.description   = %q{Archive your Rails models rather than delete them, with model and controller concerns.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
@@ -17,6 +17,8 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
+
+  spec.add_dependency 'activesupport'
 
   spec.add_development_dependency "bundler", "~> 1.5"
   spec.add_development_dependency "rake"
