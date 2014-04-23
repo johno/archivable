@@ -4,7 +4,6 @@ require 'meta_magic'
 module Archivable
   module Controller
     include MetaMagic::Controller
-    include MetaMagic::Helper
     extend ActiveSupport::Concern
 
     def archive
