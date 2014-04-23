@@ -39,7 +39,7 @@ class FakesController < ActionController::Base
   def render(dont_care, also_dont_care)
   end
 
-  def redirect_to(dont_care, also_dont_care)
+  def redirect_to(dont_care)
   end
 
   def edit_fake_path(dont_care)
