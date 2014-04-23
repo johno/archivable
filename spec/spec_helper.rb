@@ -32,9 +32,16 @@ class FakesController < ActionController::Base
     @fake = Fake.new
   end
 
+  def get_fake
+    @fake
+  end
+
   def render(dont_care, also_dont_care)
   end
 
   def redirect_to(dont_care, also_dont_care)
+  end
+
+  def edit_fake_path(dont_care)
   end
 end

@@ -4,6 +4,7 @@ require 'meta_magic'
 module Archivable
   module Controller
     include MetaMagic::Controller
+    include MetaMagic::Helper
     extend ActiveSupport::Concern
 
     def archive
@@ -11,7 +12,7 @@ module Archivable
       archivable_model.toggle(:archived)
 
       if archivable_model.save
-        redirect_to :show, notice: get_archivable_flash(archivable_model, success: true)
+        redirect_to archivable_model, notice: get_archivable_flash(archivable_model, success: true)
       else
         render :edit, alert: get_archivable_flash(archivable_model, success: false)
       end

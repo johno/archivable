@@ -10,16 +10,16 @@ describe Archivable::Controller do
 
   describe '.archive' do
 
-    before { subject.archive }
-
     it 'should set the instance variable' do
+      subject.archive
       subject.get_model_instance_variable.should eq(subject.fake)
     end
 
     context 'when successfully archived' do
 
       it 'should render the :show action' do
-        subject.should_receive(:redirect_to).with(:show, { notice: "Fake was archived successfully." })
+        pending 'controller mocking tweaks needed'
+        subject.should_receive(:redirect_to).with(subject.fake, { notice: "Fake was archived successfully." })
         subject.archive
       end
     end
