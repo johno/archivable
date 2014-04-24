@@ -19,7 +19,7 @@ describe Archivable::Controller do
 
       it 'should render the :show action' do
         pending 'controller mocking tweaks needed'
-        subject.should_receive(:redirect_to).with(action: :show, notice: "Fake was archived successfully.")
+        subject.should_receive(:redirect_to).with(action: :show)
         subject.archive
       end
     end
@@ -28,7 +28,7 @@ describe Archivable::Controller do
 
       it 'should render the :show action' do
         Fake.any_instance.stub({ save: false })
-        subject.should_receive(:render).with(:edit, { alert: "Fake was not archived successfully." })
+        subject.should_receive(:render).with(:edit)
         subject.archive
       end
     end
