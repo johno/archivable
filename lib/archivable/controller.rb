@@ -11,9 +11,9 @@ module Archivable
       archivable_model.toggle(:archived)
 
       if archivable_model.save
-        redirect_to action: :show, notice: get_archivable_flash(archivable_model, success: true)
+        redirect_to action: :show
       else
-        render :edit, alert: get_archivable_flash(archivable_model, success: false)
+        render :edit
       end
     end
 
