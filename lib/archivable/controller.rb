@@ -17,6 +17,11 @@ module Archivable
       end
     end
 
+    def archived
+      assign_models_instance_variable_array.archived
+      render :index
+    end
+
     def get_archivable_flash(model, opts = {})
       "#{ model.class.name } was"\
       "#{ ' not' unless opts[:success] } "\

@@ -4,9 +4,14 @@ module Archivable
   module Model
     extend ActiveSupport::Concern
 
-    included do
-      scope :archived,   -> { where(archived: true)  }
-      scope :unarchived, -> { where(archived: false) }
+    module ClassMethods
+      def archived
+        scoped(conditions: { archived: true })
+      end
+
+      def unarchived
+        scoped(conditions: { archived: false })
+      end
     end
 
     def archived?

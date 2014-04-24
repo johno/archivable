@@ -3,7 +3,6 @@ require 'bundler/setup'
 require 'rspec'
 
 require 'action_controller'
-require 'action_dispatch'
 
 require 'archivable'
 
