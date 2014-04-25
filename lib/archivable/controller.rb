@@ -18,7 +18,8 @@ module Archivable
     end
 
     def archived
-      assign_models_instance_variable_array.archived
+      instance_variable_set(:"@#{ controller_name }", 
+                            policy_scope(get_model_class).where(archived: true))
       render :index
     end
 
