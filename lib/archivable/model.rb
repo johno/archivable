@@ -17,5 +17,15 @@ module Archivable
     def archived?
       archived
     end
+
+    def archive!
+      self.archived = true
+      save
+    end
+
+    def unarchive!
+      self.archived = false
+      save
+    end
   end
 end
