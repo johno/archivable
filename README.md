@@ -2,9 +2,32 @@
 
 [![Build Status](https://travis-ci.org/johnotander/archivable.svg?branch=master)](https://travis-ci.org/johnotander/archivable)
 
-_Currently under development._
+Archive your Rails models rather than delete them. This provides the archiving functionality app so you can do the following:
 
-Archive your Rails models rather than delete them.
+##### In your models:
+
+```ruby
+user.archived?  #=> false
+user.archive!   #=> true
+user.archived?  #=> true
+user.unarchive! #=> true
+user.archived?  #=> false
+
+User.archived 
+User.unarchived
+```
+
+##### In your views:
+
+_This would typically be added to a view helper._
+
+```html+erb
+<% if user.archived? %>
+  <%= link_to :Archive, archive_user_path(user) %>
+<% else %>
+  <%= link_to :Unarchive, archive_user_path(user) %>
+<% end %>
+```
 
 ## Installation
 
@@ -22,7 +45,49 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Database Migration
+
+First, you need to add the `archived` column to your model (which we we call `User` for this example):
+
+```
+$ rails g migration add_archived_to_users archived:boolean
+$ rake db:migrate
+```
+
+### Application Routes
+
+In your routes file (`config/routes.rb`):
+
+```ruby
+My::Application.routes.draw do
+  resources :users do
+    get archive,  on: :member
+    get archived, on: :collection
+  end
+end
+```
+
+### The Model
+
+Next, you need to include the model concern to gain access to some handy methods.
+
+```ruby
+class User < ActiveRecord::Base
+  include Archivable::Model
+
+  # ...
+end
+```
+
+### The Controller
+
+Lastly, you need to include the controller concern to handle the controller actions.
+
+```ruby
+class UsersController < ApplicationController
+  include Archivable::Controller
+end
+```
 
 ## Contributing
 
