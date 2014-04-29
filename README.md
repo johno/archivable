@@ -33,15 +33,21 @@ _This would typically be added to a view helper._
 
 Add this line to your application's Gemfile:
 
-    gem 'archivable'
+```ruby
+gem 'archivable'
+```
 
 And then execute:
 
-    $ bundle
+```
+$ bundle
+```
 
 Or install it yourself as:
 
-    $ gem install archivable
+```
+$ gem install archivable
+```
 
 ## Usage
 
@@ -87,6 +93,15 @@ Lastly, you need to include the controller concern to handle the controller acti
 class UsersController < ApplicationController
   include Archivable::Controller
 end
+```
+
+### That's it.
+
+Now, instead of a delete link, you can do the following:
+
+```
+<%= link_to user.archived? ? :Unarchive : :Archive, archive_user_path(user) %>
+<%= link_to 'See Archived Users', archived_users_path %>
 ```
 
 ## Contributing
