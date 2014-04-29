@@ -13,6 +13,7 @@ user.archived?  #=> true
 user.unarchive! #=> true
 user.archived?  #=> false
 
+# With scopes available:
 User.archived 
 User.unarchived
 ```
@@ -92,6 +93,12 @@ Lastly, you need to include the controller concern to handle the controller acti
 ```ruby
 class UsersController < ApplicationController
   include Archivable::Controller
+
+  def index
+    @users = User.where(archived: false)
+  end
+
+  # ...
 end
 ```
 
