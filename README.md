@@ -99,7 +99,7 @@ end
 
 Now, instead of a delete link, you can do the following:
 
-```
+```html+erb
 <%= link_to user.archived? ? :Unarchive : :Archive, archive_user_path(user) %>
 <%= link_to 'See Archived Users', archived_users_path %>
 ```
