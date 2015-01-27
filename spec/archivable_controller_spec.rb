@@ -12,7 +12,7 @@ describe Archivable::Controller do
 
     it 'should set the instance variable' do
       subject.archive
-      subject.get_model_instance_variable.should eq(subject.fake)
+      expect.get_model_instance_variable).to eq(subject.fake)
     end
 
     context 'when successfully archived' do
