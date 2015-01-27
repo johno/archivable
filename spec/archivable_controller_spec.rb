@@ -12,14 +12,13 @@ describe Archivable::Controller do
 
     it 'should set the instance variable' do
       subject.archive
-      expect.get_model_instance_variable).to eq(subject.fake)
+      expect(subject.get_model_instance_variable).to eq(subject.fake)
     end
 
     context 'when successfully archived' do
 
       it 'should render the :show action' do
-        pending 'controller mocking tweaks needed'
-        subject.should_receive(:redirect_to).with(action: :show)
+        expect(subject).to receive(:redirect_to).with(action: :show)
         subject.archive
       end
     end
@@ -27,8 +26,8 @@ describe Archivable::Controller do
     context 'when unsuccessfully archived' do
 
       it 'should render the :show action' do
-        Fake.any_instance.stub({ save: false })
-        subject.should_receive(:render).with(:edit)
+        allow_any_instance_of(Fake).to receive(:save).and_return(false)
+        expect(subject).to receive(:render).with(:edit)
         subject.archive
       end
     end
