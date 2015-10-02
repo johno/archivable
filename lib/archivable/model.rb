@@ -27,5 +27,9 @@ module Archivable
       self.archived = false
       save
     end
+
+    def is_archivable?
+      respond_to?(:archived)
+    end
   end
 end

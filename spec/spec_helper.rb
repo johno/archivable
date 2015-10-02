@@ -18,6 +18,9 @@ class Fake
   end
 end
 
+class UnarchivableFake
+end
+
 class FakesController < ActionController::Base
   include Archivable::Controller
 
