@@ -11,7 +11,7 @@ module Archivable
       archivable_model.toggle(:archived)
 
       if archivable_model.save
-        redirect_to action: :show
+        redirect_to respond_to?(after_archive_path) ? after_archive_path : action: :show
       else
         render :edit
       end
