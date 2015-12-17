@@ -18,9 +18,9 @@ module Archivable
       archived
     end
 
-    def archive!
+    def archive!(save_args = {})
       self.archived = true
-      save
+      save(save_args)
     end
 
     def unarchive!
