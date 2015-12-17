@@ -22,7 +22,7 @@ class Fake
     !!archived
   end
 
-  def save
+  def save(opts = {})
     true
   end
 end

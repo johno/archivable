@@ -1,10 +1,8 @@
-# Archivable
-
-[![Build Status](https://travis-ci.org/johnotander/archivable.svg?branch=master)](https://travis-ci.org/johnotander/archivable)
+# archivable [![Build Status](https://travis-ci.org/johnotander/archivable.svg?branch=master)](https://travis-ci.org/johnotander/archivable)
 
 Archive your Rails models rather than delete them. This provides the archiving functionality app so you can do the following:
 
-##### In your models:
+##### In your models
 
 ```ruby
 user.archived?  #=> false
@@ -12,15 +10,9 @@ user.archive!   #=> true
 user.archived?  #=> true
 user.unarchive! #=> true
 user.archived?  #=> false
-
-# With scopes available:
-User.archived 
-User.unarchived
 ```
 
-##### In your views:
-
-_This would typically be added to a view helper._
+##### In your views
 
 ```html+erb
 <% if user.archived? %>
