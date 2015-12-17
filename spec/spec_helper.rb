@@ -7,10 +7,19 @@ require 'action_controller'
 require 'archivable'
 
 class Fake
+  include Archivable::Model
   attr_accessor :archived
+
+  def initialize(opts = {})
+    self.archived = opts[:archived] || false
+  end
 
   def toggle(dont_care)
     self.archived = archived ? false : true
+  end
+
+  def archived?
+    !!archived
   end
 
   def save
