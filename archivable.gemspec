@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["johnotander@gmail.com"]
   spec.summary       = %q{Archive your Rails models rather than delete them.}
   spec.description   = %q{Archive your Rails models rather than delete them, with model and controller concerns.}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/johnotander/archivable"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
@@ -21,7 +21,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'activesupport'
   spec.add_dependency 'meta_magic'
 
-  spec.add_development_dependency 'bundler', '~> 1.5'
+  spec.add_development_dependency 'bundler', '~> 1.11'
   spec.add_development_dependency 'rake'
   spec.add_development_dependency 'rspec'
   spec.add_development_dependency 'actionpack'
