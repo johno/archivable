@@ -38,4 +38,26 @@ describe Archivable::Model do
       subject.archive!
     end
   end
+
+  describe '.archived' do
+    let!(:archived_fake) { Fake.create(archived: true) }
+    let!(:unarchived_fake) { Fake.create(archived: false) }
+    it 'returns the archived object' do
+      expect(Fake.archived).to include(archived_fake)
+    end
+    it 'does not return the unarchievd object' do
+      expect(Fake.archived).to_not include(unarchived_fake)
+    end
+  end
+
+  describe '.unarchived' do
+    let!(:archived_fake) { Fake.create(archived: true) }
+    let!(:unarchived_fake) { Fake.create(archived: false) }
+    it 'does not return the archived object' do
+      expect(Fake.unarchived).to_not include(archived_fake)
+    end
+    it 'returns the unarchievd object' do
+      expect(Fake.unarchived).to include(unarchived_fake)
+    end
+  end
 end

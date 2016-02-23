@@ -3,16 +3,23 @@ require 'bundler/setup'
 require 'rspec'
 
 require 'action_controller'
+require 'active_record'
 
 require 'archivable'
 
-class Fake
-  include Archivable::Model
-  attr_accessor :archived
+ActiveRecord::Base.establish_connection(adapter: 'sqlite3',
+                                        database: ':memory:')
 
-  def initialize(opts = {})
-    self.archived = opts[:archived] || false
-  end
+ActiveRecord::Schema.define do
+ self.verbose = false
+
+   create_table :fakes, cascade: true do |t|
+     t.boolean :archived
+   end
+end
+
+class Fake < ActiveRecord::Base
+  include Archivable::Model
 
   def toggle(dont_care)
     self.archived = archived ? false : true
@@ -20,10 +27,6 @@ class Fake
 
   def archived?
     !!archived
-  end
-
-  def save(opts = {})
-    true
   end
 end
 
