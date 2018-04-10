@@ -54,6 +54,10 @@ $ rake db:migrate
 ```
 NOTE: remember to edit the migration and set `:archived` column to default to `false` in order to simplify querying for non-archived models.
 
+```
+  add_column :users, :archived, :boolean, default: false
+```
+
 ### Application Routes
 
 In your routes file (`config/routes.rb`):
